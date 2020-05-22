@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-//      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -69,7 +69,12 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 50,
+                height: 30,
+              ),
+              Image.asset("assets/smile.png",
+              height: 50,),
+              SizedBox(
+                height: 15,
               ),
               Image.asset(
                 "assets/memegenrator.png",
@@ -80,12 +85,15 @@ class _HomePageState extends State<HomePage> {
               ),
               RepaintBoundary(
                 key: globalKey,
+
                 child: Stack(
                   children: <Widget>[
+
                     _image != null
                         ? Image.file(
                       _image,
                       height: 300,
+                      width: MediaQuery.of(context).size.width,
                       fit: BoxFit.fitHeight,
                     )
                         : Container(),
@@ -176,13 +184,23 @@ class _HomePageState extends State<HomePage> {
                       decoration: InputDecoration(hintText: "Footer Text"),
                     ),
                     SizedBox(height: 20,),
-                    RaisedButton(
-                      onPressed: () {
-                        //TODO
-                        takeScreenshot();
-                      },
-                      child: Text("Save"),
-                    )
+                    Row(
+                      children: <Widget>[
+                        SizedBox(width: 50,),
+                        RaisedButton(
+                          onPressed: () {
+
+                            takeScreenshot();
+                          },
+                          child: Text("Save",),
+                        ),
+                        SizedBox(width: 40,),
+                        RaisedButton(onPressed: null,
+                        child: Text("Share"),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 20,),
                   ],
                 ),
               )
@@ -193,6 +211,7 @@ class _HomePageState extends State<HomePage> {
               ),
               _imageFile != null ? Image.file(
                   _imageFile,
+                alignment: Alignment.topCenter,
               ) : Container(),
             ],
           ),

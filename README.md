@@ -1,4 +1,4 @@
-# meme_generator
+# Meme Generator App Made with Flutter
 
 A new Flutter application.
 
