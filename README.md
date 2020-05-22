@@ -1,6 +1,6 @@
 # Meme Generator App Made with Flutter
 
-A new Flutter application.
+In Meme generator we capture screenshot of a widget and save the image to gallery or photos .
 
 ## Getting Started
 
